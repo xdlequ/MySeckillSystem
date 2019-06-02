@@ -1,9 +1,8 @@
 package com.sun.seckill.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Task implements Serializable {
+public class Task {
     private Integer id;
 
     private Integer goodsId;

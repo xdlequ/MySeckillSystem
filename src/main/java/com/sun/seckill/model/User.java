@@ -1,9 +1,8 @@
 package com.sun.seckill.model;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable {
+public class User {
     private Integer id;
 
     private String username;

@@ -2,7 +2,6 @@ package com.sun.seckill.dao;
 
 import com.sun.seckill.model.Order;
 import com.sun.seckill.model.OrderExample;
-import com.sun.seckill.model.OrderKey;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -16,7 +15,7 @@ public interface OrderMapper {
 
     int deleteByExample(OrderExample example);
 
-    int deleteByPrimaryKey(OrderKey key);
+    int deleteByPrimaryKey(@Param("taskId") Integer taskId, @Param("userId") Integer userId);
 
     int insert(Order record);
 
@@ -24,7 +23,7 @@ public interface OrderMapper {
 
     List<Order> selectByExample(OrderExample example);
 
-    Order selectByPrimaryKey(OrderKey key);
+    Order selectByPrimaryKey(@Param("taskId") Integer taskId, @Param("userId") Integer userId);
 
     int updateByExampleSelective(@Param("record") Order record, @Param("example") OrderExample example);
 

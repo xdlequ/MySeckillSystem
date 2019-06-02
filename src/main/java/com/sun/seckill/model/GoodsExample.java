@@ -1,12 +1,11 @@
 package com.sun.seckill.model;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class GoodsExample implements Serializable {
+public class GoodsExample {
     protected String orderByClause;
 
     protected boolean distinct;

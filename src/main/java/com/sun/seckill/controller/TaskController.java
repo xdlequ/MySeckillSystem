@@ -1,6 +1,5 @@
 package com.sun.seckill.controller;
 
-import com.sun.seckill.model.Goods;
 import com.sun.seckill.model.Task;
 import com.sun.seckill.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;

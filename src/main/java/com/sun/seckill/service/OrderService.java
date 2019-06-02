@@ -1,10 +1,9 @@
 package com.sun.seckill.service;
 
 import com.sun.seckill.model.Order;
-import com.sun.seckill.model.OrderKey;
 
 public interface OrderService extends BaseService<Order> {
-    Order select(OrderKey key);
+    Order select(Integer taskId,Integer userId);
 
-    int delete(OrderKey key);
+    int delete(Integer taskId,Integer userId);
 }

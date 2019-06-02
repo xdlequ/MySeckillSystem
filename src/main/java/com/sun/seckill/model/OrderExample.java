@@ -1,11 +1,10 @@
 package com.sun.seckill.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class OrderExample implements Serializable {
+public class OrderExample {
     protected String orderByClause;
 
     protected boolean distinct;

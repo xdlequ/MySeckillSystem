@@ -2,11 +2,27 @@ package com.sun.seckill.model;
 
 import java.util.Date;
 
-public class Order extends OrderKey {
+public class Order {
+    private Integer taskId;
+
+    private Integer userId;
+
     private Date createTime;
 
-    public Order(Integer taskId, Integer userId) {
-        super(taskId, userId);
+    public Integer getTaskId() {
+        return taskId;
+    }
+
+    public void setTaskId(Integer taskId) {
+        this.taskId = taskId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public Date getCreateTime() {

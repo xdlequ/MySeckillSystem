@@ -1,5 +1,6 @@
 package com.sun.seckill.service;
 
+
 import com.sun.seckill.model.Order;
 
 public interface OrderService extends BaseService<Order> {

@@ -73,7 +73,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from order
+    from `order`
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,29 +84,29 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
     select 
     <include refid="Base_Column_List" />
-    from order
+    from `order`
     where task_id = #{taskId,jdbcType=INTEGER}
       and user_id = #{userId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="map" >
-    delete from order
+    delete from `order`
     where task_id = #{taskId,jdbcType=INTEGER}
       and user_id = #{userId,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.sun.seckill.model.OrderExample" >
-    delete from order
+    delete from `order`
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.sun.seckill.model.Order" >
-    insert into order (task_id, user_id, create_time
+    insert into `order` (task_id, user_id, create_time
       )
     values (#{taskId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.sun.seckill.model.Order" >
-    insert into order
+    insert into `order`
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="taskId != null" >
         task_id,
@@ -131,13 +131,13 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.sun.seckill.model.OrderExample" resultType="java.lang.Integer" >
-    select count(*) from order
+    select count(*) from `order`
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update order
+    update `order`
     <set >
       <if test="record.taskId != null" >
         task_id = #{record.taskId,jdbcType=INTEGER},
@@ -154,7 +154,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update order
+    update `order`
     set task_id = #{record.taskId,jdbcType=INTEGER},
       user_id = #{record.userId,jdbcType=INTEGER},
       create_time = #{record.createTime,jdbcType=TIMESTAMP}
@@ -163,7 +163,7 @@
     </if>
   </update>
   <update id="updateByPrimaryKeySelective" parameterType="com.sun.seckill.model.Order" >
-    update order
+    update `order`
     <set >
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -173,7 +173,7 @@
       and user_id = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sun.seckill.model.Order" >
-    update order
+    update `order`
     set create_time = #{createTime,jdbcType=TIMESTAMP}
     where task_id = #{taskId,jdbcType=INTEGER}
       and user_id = #{userId,jdbcType=INTEGER}

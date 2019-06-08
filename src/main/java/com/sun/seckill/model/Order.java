@@ -7,6 +7,10 @@ public class Order {
 
     private Integer userId;
 
+    private Task task;
+
+    private User user;
+
     private Date createTime;
 
     public Integer getTaskId() {
@@ -31,5 +35,21 @@ public class Order {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

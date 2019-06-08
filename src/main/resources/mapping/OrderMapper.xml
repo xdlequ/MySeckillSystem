@@ -5,6 +5,8 @@
     <id column="task_id" property="taskId" jdbcType="INTEGER" />
     <id column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <association property="task" column="task_id" select="com.sun.seckill.dao.TaskMapper.selectByPrimaryKey"/>
+    <association property="user" column="user_id" select="com.sun.seckill.dao.UserMapper.selectByPrimaryKey"/>
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >

@@ -10,6 +10,7 @@
     <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="version" property="version" jdbcType="INTEGER" />
+    <association property="goods" column="goods_id" select="com.sun.seckill.dao.GoodsMapper.selectByPrimaryKey"/>
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >

@@ -19,6 +19,8 @@ public class Task {
 
     private Integer version;
 
+    private Goods goods;
+
     public Integer getId() {
         return id;
     }
@@ -81,5 +83,13 @@ public class Task {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    public Goods getGoods() {
+        return goods;
+    }
+
+    public void setGoods(Goods goods) {
+        this.goods = goods;
     }
 }

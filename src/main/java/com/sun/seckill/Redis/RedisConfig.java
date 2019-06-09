@@ -7,19 +7,24 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by ql on 2019/6/8.
+ *
+ * @author ql
+ * @date 2019/6/8
  */
 @Component
 @Getter
 @Setter
 @ConfigurationProperties(prefix = "redis")
-public class RedisConfig {
+public class RedisConfig {/**从配置文件中读取redis相关的配置*/
     private String host;
     private int port;
     private int timeout;
     private String password;
-    private int poolMaxTotal;//最大的连接数
-    private int poolMaxIdle;//最大间隔
-    private int poolMaxWait;//最大等待时间
+    /**最大的连接数*/
+    private int poolMaxTotal;
+    /**最大空闲间隔*/
+    private int poolMaxIdle;
+    /**最大等待时间*/
+    private int poolMaxWait;
 
 }

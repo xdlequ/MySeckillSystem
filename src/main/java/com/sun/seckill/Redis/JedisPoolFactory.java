@@ -14,7 +14,7 @@ public class JedisPoolFactory {
     @Autowired
     RedisConfig redisConfig;
     @Bean
-    public JedisPool jedisPoolFactory(){
+    public JedisPool jedisPoolFactory(){//采用工厂设计模式，将jedis的创建销毁交给容器来管理。此处增加一些简单的配置
         JedisPoolConfig poolConfig=new JedisPoolConfig();
         poolConfig.setMaxIdle(redisConfig.getPoolMaxIdle());
         poolConfig.setMaxTotal(redisConfig.getPoolMaxTotal());

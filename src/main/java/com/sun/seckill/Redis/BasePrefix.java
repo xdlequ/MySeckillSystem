@@ -11,7 +11,9 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 public class BasePrefix implements KeyPrefix {
+    /*过期时间*/
     private int expireSeconds;
+    /*前缀名*/
     private String prefix;
     public BasePrefix(String prefix){
         this.prefix=prefix;
@@ -22,7 +24,7 @@ public class BasePrefix implements KeyPrefix {
     }
 
     @Override
-    public String getPrefix() {
+    public String getPrefix() {//redis KEY设计的核心所在，通过类名+前缀名增加区分度
         String className=this.getClass().getName();
         return className+":"+this.prefix;
     }

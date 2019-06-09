@@ -7,7 +7,9 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 /**
- * Created by ql on 2019/6/8.
+ *
+ * @author ql
+ * @date 2019/6/8
  */
 @Service
 public class RedisService {

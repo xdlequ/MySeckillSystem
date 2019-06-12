@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.*;
+
 import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {SeckillApplication.class})
@@ -17,6 +19,7 @@ public class TaskServiceImplTest {
     TaskMapper mapper;
     @Test
     public void insert() {
+       HashMap Map=new HashMap();
     }
 
     @Test

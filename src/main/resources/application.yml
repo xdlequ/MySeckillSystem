@@ -64,6 +64,12 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   #params: count=countSql
-
-
+# Redis 相关配置
+redis:
+  host: 139.196.124.229
+  port: 6379
+  timeout: 3
+  poolMaxTotal: 10
+  poolMaxIdle: 10
+  poolMaxWait: 3
 

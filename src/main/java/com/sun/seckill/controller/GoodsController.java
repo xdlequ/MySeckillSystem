@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
+import java.util.concurrent.*;
+
 
 @RestController
 public class GoodsController {
@@ -71,5 +73,10 @@ public class GoodsController {
     public String deleteGoods(@PathVariable Integer id) {
         service.delete(id);
         return "delete goods success";
+    }
+
+    public static void main(String[] args) {
+        ExecutorService pool=Executors.newScheduledThreadPool(1);
+        LinkedBlockingQueue
     }
 }

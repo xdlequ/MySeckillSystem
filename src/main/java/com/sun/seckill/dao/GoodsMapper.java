@@ -1,35 +1,30 @@
 package com.sun.seckill.dao;
 
-import com.sun.seckill.model.Goods;
-import com.sun.seckill.model.GoodsExample;
+
+import com.sun.seckill.entity.Goods;
+import org.apache.ibatis.annotations.Mapper;
+
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
-
 @Mapper
-@Component(value = "goodsMapper")
 public interface GoodsMapper {
-    int countByExample(GoodsExample example);
-
-    int deleteByExample(GoodsExample example);
-
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Long id);
 
     int insert(Goods record);
 
     int insertSelective(Goods record);
 
-    List<Goods> selectByExample(GoodsExample example);
-
-    Goods selectByPrimaryKey(Integer id);
-
-    int updateByExampleSelective(@Param("record") Goods record, @Param("example") GoodsExample example);
-
-    int updateByExample(@Param("record") Goods record, @Param("example") GoodsExample example);
+    Goods selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(Goods record);
 
+    int updateByPrimaryKeyWithBLOBs(Goods record);
+
     int updateByPrimaryKey(Goods record);
+
+//    List<GoodsBo> selectAllGoodes();
+//
+//    GoodsBo getseckillGoodsBoByGoodsId(long goodsId);
+
+    int updateStock(long goodsId);
 }

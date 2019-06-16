@@ -1,5 +1,7 @@
 server:
   port: 8080
+  tomcat:
+    uri-encoding: UTF-8
 
 spring:
   datasource:
@@ -12,9 +14,9 @@ spring:
       #mysql驱动
       driver-class-name: com.mysql.jdbc.Driver
       #基本属性
-      url: jdbc:mysql://39.106.82.233:3306/TestForSecKill?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      url: jdbc:mysql://139.196.124.229:3306/Seckillql?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
       username: root
-      password: 123456
+      password: root
       #配置初始化大小/最小/最大
       initial-size: 1
       min-idle: 1
@@ -23,7 +25,11 @@ spring:
       max-wait: 60000
       #间隔多久进行一次检测，检测需要关闭的空闲连接
       time-between-eviction-runs-millis: 60000
-
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
   thymeleaf:
     prefix: classpath:/templates/
     check-template-location: true
@@ -31,6 +37,46 @@ spring:
     encoding: UTF-8
     mode: LEGACYHTML5
     cache: false
+  # 静态资源配置
+  resources:
+    add-mappings: true
+    cache-period: 3600
+    chain:
+      cache: true
+      enabled: true
+      gzipped: true
+      html-application-cache: true
+    static-locations: /static/
+  # Redis 相关配置
+  redis:
+    host: 139.196.124.229
+    port: 6379
+    timeout: 3
+    jedis:
+      pool:
+        max-active: 10
+        max-idle: 10
+        max-wait: 3
+
+  rabbitmq:
+    host: 139.196.124.229
+    port: 5672
+    username: test
+    password: 123456
+    virtual-host: /
+    listener:
+      simple:
+        concurrency: 2
+        max-concurrency: 5
+        prefetch: 1
+        default-requeue-rejected: true
+        retry:
+          enabled: true
+          initial-interval: 1000
+          max-attempts: 3
+          max-interval: 10000
+          multiplier: 1.0
+        auto-startup: true
 
   #文件上传相关设置
 #  servlet:
@@ -57,6 +103,8 @@ spring:
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.sun.seckill.model
+  config-location: classpath:mybatis/mybatis-config.xml
+
 
 #mybaatis分页插件pagehelper设置
 pagehelper:
@@ -64,12 +112,8 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   #params: count=countSql
-# Redis 相关配置
-redis:
-  host: 139.196.124.229
-  port: 6379
-  timeout: 3
-  poolMaxTotal: 10
-  poolMaxIdle: 10
-  poolMaxWait: 3
+#rocketmq系列
+
+
+
 

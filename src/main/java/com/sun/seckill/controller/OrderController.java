@@ -1,6 +1,5 @@
 package com.sun.seckill.controller;
 
-import com.sun.seckill.model.Order;
 import com.sun.seckill.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

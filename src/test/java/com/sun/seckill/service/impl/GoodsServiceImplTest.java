@@ -1,9 +1,6 @@
 package com.sun.seckill.service.impl;
 
 import com.sun.seckill.SeckillApplication;
-import com.sun.seckill.dao.GoodsMapper;
-import com.sun.seckill.dao.UserMapper;
-import com.sun.seckill.model.Goods;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +10,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {SeckillApplication.class})
 public class GoodsServiceImplTest {

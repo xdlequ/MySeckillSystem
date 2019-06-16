@@ -3,14 +3,14 @@
 <mapper namespace="com.sun.seckill.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="com.sun.seckill.model.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="avatar_url" property="avatarUrl" jdbcType="VARCHAR" />
-    <result column="phone_num" property="phoneNum" jdbcType="CHAR" />
-    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="salt" property="salt" jdbcType="VARCHAR" />
+    <result column="head" property="head" jdbcType="VARCHAR" />
+    <result column="login_count" property="loginCount" jdbcType="INTEGER" />
     <result column="register_date" property="registerDate" jdbcType="TIMESTAMP" />
-    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
-    <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="last_login_date" property="lastLoginDate" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -71,8 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, username, password, avatar_url, phone_num, email, register_date, update_date, 
-    location
+    id, user_name, phone, password, salt, head, login_count, register_date, last_login_date
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sun.seckill.model.UserExample" >
     select
@@ -105,13 +104,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sun.seckill.model.User" >
-    insert into user (id, username, password, 
-      avatar_url, phone_num, email, 
-      register_date, update_date, location
+    insert into user (id, user_name, phone, 
+      password, salt, head, 
+      login_count, register_date, last_login_date
       )
-    values (#{id,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
-      #{avatarUrl,jdbcType=VARCHAR}, #{phoneNum,jdbcType=CHAR}, #{email,jdbcType=VARCHAR}, 
-      #{registerDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, #{location,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{head,jdbcType=VARCHAR}, 
+      #{loginCount,jdbcType=INTEGER}, #{registerDate,jdbcType=TIMESTAMP}, #{lastLoginDate,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.sun.seckill.model.User" >
@@ -120,58 +119,58 @@
       <if test="id != null" >
         id,
       </if>
-      <if test="username != null" >
-        username,
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="phone != null" >
+        phone,
       </if>
       <if test="password != null" >
         password,
       </if>
-      <if test="avatarUrl != null" >
-        avatar_url,
+      <if test="salt != null" >
+        salt,
       </if>
-      <if test="phoneNum != null" >
-        phone_num,
+      <if test="head != null" >
+        head,
       </if>
-      <if test="email != null" >
-        email,
+      <if test="loginCount != null" >
+        login_count,
       </if>
       <if test="registerDate != null" >
         register_date,
       </if>
-      <if test="updateDate != null" >
-        update_date,
-      </if>
-      <if test="location != null" >
-        location,
+      <if test="lastLoginDate != null" >
+        last_login_date,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
-      <if test="username != null" >
-        #{username,jdbcType=VARCHAR},
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >
         #{password,jdbcType=VARCHAR},
       </if>
-      <if test="avatarUrl != null" >
-        #{avatarUrl,jdbcType=VARCHAR},
+      <if test="salt != null" >
+        #{salt,jdbcType=VARCHAR},
       </if>
-      <if test="phoneNum != null" >
-        #{phoneNum,jdbcType=CHAR},
+      <if test="head != null" >
+        #{head,jdbcType=VARCHAR},
       </if>
-      <if test="email != null" >
-        #{email,jdbcType=VARCHAR},
+      <if test="loginCount != null" >
+        #{loginCount,jdbcType=INTEGER},
       </if>
       <if test="registerDate != null" >
         #{registerDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateDate != null" >
-        #{updateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="location != null" >
-        #{location,jdbcType=VARCHAR},
+      <if test="lastLoginDate != null" >
+        #{lastLoginDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -187,29 +186,29 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.username != null" >
-        username = #{record.username,jdbcType=VARCHAR},
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null" >
+        phone = #{record.phone,jdbcType=VARCHAR},
       </if>
       <if test="record.password != null" >
         password = #{record.password,jdbcType=VARCHAR},
       </if>
-      <if test="record.avatarUrl != null" >
-        avatar_url = #{record.avatarUrl,jdbcType=VARCHAR},
+      <if test="record.salt != null" >
+        salt = #{record.salt,jdbcType=VARCHAR},
       </if>
-      <if test="record.phoneNum != null" >
-        phone_num = #{record.phoneNum,jdbcType=CHAR},
+      <if test="record.head != null" >
+        head = #{record.head,jdbcType=VARCHAR},
       </if>
-      <if test="record.email != null" >
-        email = #{record.email,jdbcType=VARCHAR},
+      <if test="record.loginCount != null" >
+        login_count = #{record.loginCount,jdbcType=INTEGER},
       </if>
       <if test="record.registerDate != null" >
         register_date = #{record.registerDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.updateDate != null" >
-        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.location != null" >
-        location = #{record.location,jdbcType=VARCHAR},
+      <if test="record.lastLoginDate != null" >
+        last_login_date = #{record.lastLoginDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -219,14 +218,14 @@
   <update id="updateByExample" parameterType="map" >
     update user
     set id = #{record.id,jdbcType=INTEGER},
-      username = #{record.username,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
-      avatar_url = #{record.avatarUrl,jdbcType=VARCHAR},
-      phone_num = #{record.phoneNum,jdbcType=CHAR},
-      email = #{record.email,jdbcType=VARCHAR},
+      salt = #{record.salt,jdbcType=VARCHAR},
+      head = #{record.head,jdbcType=VARCHAR},
+      login_count = #{record.loginCount,jdbcType=INTEGER},
       register_date = #{record.registerDate,jdbcType=TIMESTAMP},
-      update_date = #{record.updateDate,jdbcType=TIMESTAMP},
-      location = #{record.location,jdbcType=VARCHAR}
+      last_login_date = #{record.lastLoginDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -234,43 +233,43 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.sun.seckill.model.User" >
     update user
     <set >
-      <if test="username != null" >
-        username = #{username,jdbcType=VARCHAR},
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
       </if>
       <if test="password != null" >
         password = #{password,jdbcType=VARCHAR},
       </if>
-      <if test="avatarUrl != null" >
-        avatar_url = #{avatarUrl,jdbcType=VARCHAR},
+      <if test="salt != null" >
+        salt = #{salt,jdbcType=VARCHAR},
       </if>
-      <if test="phoneNum != null" >
-        phone_num = #{phoneNum,jdbcType=CHAR},
+      <if test="head != null" >
+        head = #{head,jdbcType=VARCHAR},
       </if>
-      <if test="email != null" >
-        email = #{email,jdbcType=VARCHAR},
+      <if test="loginCount != null" >
+        login_count = #{loginCount,jdbcType=INTEGER},
       </if>
       <if test="registerDate != null" >
         register_date = #{registerDate,jdbcType=TIMESTAMP},
       </if>
-      <if test="updateDate != null" >
-        update_date = #{updateDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="location != null" >
-        location = #{location,jdbcType=VARCHAR},
+      <if test="lastLoginDate != null" >
+        last_login_date = #{lastLoginDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.sun.seckill.model.User" >
     update user
-    set username = #{username,jdbcType=VARCHAR},
+    set user_name = #{userName,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      avatar_url = #{avatarUrl,jdbcType=VARCHAR},
-      phone_num = #{phoneNum,jdbcType=CHAR},
-      email = #{email,jdbcType=VARCHAR},
+      salt = #{salt,jdbcType=VARCHAR},
+      head = #{head,jdbcType=VARCHAR},
+      login_count = #{loginCount,jdbcType=INTEGER},
       register_date = #{registerDate,jdbcType=TIMESTAMP},
-      update_date = #{updateDate,jdbcType=TIMESTAMP},
-      location = #{location,jdbcType=VARCHAR}
+      last_login_date = #{lastLoginDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -1,9 +1,6 @@
 package com.sun.seckill.service.impl;
 
 import com.sun.seckill.SeckillApplication;
-import com.sun.seckill.dao.OrderMapper;
-import com.sun.seckill.model.Order;
-import com.sun.seckill.service.OrderService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

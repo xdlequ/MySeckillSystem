@@ -1,15 +1,14 @@
 package com.sun.seckill.controller;
 
-import com.sun.seckill.model.Goods;
 import com.sun.seckill.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
-import java.util.concurrent.*;
 
 
 @RestController
+@RequestMapping("/goods")
 public class GoodsController {
     @Autowired
     private GoodsService service;
@@ -75,8 +74,4 @@ public class GoodsController {
         return "delete goods success";
     }
 
-    public static void main(String[] args) {
-        ExecutorService pool=Executors.newScheduledThreadPool(1);
-        LinkedBlockingQueue
-    }
 }

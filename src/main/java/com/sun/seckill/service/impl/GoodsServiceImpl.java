@@ -1,7 +1,5 @@
 package com.sun.seckill.service.impl;
 
-import com.sun.seckill.dao.GoodsMapper;
-import com.sun.seckill.model.Goods;
 import com.sun.seckill.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

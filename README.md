@@ -1,6 +1,20 @@
-# 创建
-基本的CRUD操作
+### 秒杀高并发架构 -- 架构图
 
+> 软件环境 : 请选择稳定版 
+
+![整体流程](https://raw.githubusercontent.com/qiurunze123/imageall/master/miaosha.png)
+
+> 未来设计图 : 未来设计
+
+![整体流程](https://raw.githubusercontent.com/qiurunze123/imageall/master/miaoshafuture.png)
+
+> 软件环境 : mysql 数据库表设计
+
+![整体流程](https://raw.githubusercontent.com/qiurunze123/imageall/master/miaoshasql.png)
+
+>1.需注意 因为秒杀，大促，打折等活动进行频繁，所以需要单独建立秒杀_....表来管理否则会经常进行回归
+
+>2.本sql只是进行模拟，现实情况比这个信息要复杂的多，你可以把它看作是一个简化版本的sql
 # Task：19/6/5
 前端设计  
 主页面两个按钮选择，进去点击选择用户或者商家。
